@@ -53,6 +53,16 @@
                     @endif
                 </div>
 
+                <div>
+                    @auth
+                        <h1>Vous êtes connectés !</h1>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
+                    @else 
+                        <a href="{{ route('login') }}" >{{ __('Login') }}</a>
+                    @endauth
+                </div>
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
